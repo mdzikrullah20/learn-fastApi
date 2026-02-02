@@ -1,8 +1,12 @@
 from pydantic import BaseModel
 
-class UserCreate(BaseModel):
-    username: str
-    password: str
+class ProductCreate(BaseModel):
+    name: str
+    price: float
+    stock: int
 
-class TaskCreate(BaseModel):
-    title: str
+class ProductResponse(ProductCreate):
+    id: int
+
+    class Config:
+        orm_mode = True
